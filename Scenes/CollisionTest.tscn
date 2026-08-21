@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dvw0djl2hihfc"]
+
+[ext_resource type="Script" uid="uid://46u46rqf201x" path="res://Scripts/CollisionTester.gd" id="1_mim41"]
+[ext_resource type="Script" uid="uid://ns3ab0ey6hjn" path="res://Scripts/BlipAABB/Shapes/Rect.gd" id="2_ohura"]
+[ext_resource type="Script" uid="uid://8jsrjp1m2hxf" path="res://Scripts/BlipAABB/Shapes/Cirlce.gd" id="3_nrwyy"]
+[ext_resource type="Script" uid="uid://dd48mh7q8cggk" path="res://Scripts/BlipAABB/BlipShape2D.gd" id="4_ohura"]
+
+[sub_resource type="Resource" id="Resource_r17kd"]
+script = ExtResource("2_ohura")
+size = Vector2i(32, 24)
+metadata/_custom_type_script = "uid://ns3ab0ey6hjn"
+
+[sub_resource type="Resource" id="Resource_0acop"]
+script = ExtResource("2_ohura")
+size = Vector2i(18, 64)
+metadata/_custom_type_script = "uid://ns3ab0ey6hjn"
+
+[sub_resource type="Resource" id="Resource_cisxy"]
+script = ExtResource("3_nrwyy")
+radius = 16
+metadata/_custom_type_script = "uid://8jsrjp1m2hxf"
+
+[sub_resource type="Resource" id="Resource_ohura"]
+script = ExtResource("3_nrwyy")
+radius = 24
+metadata/_custom_type_script = "uid://8jsrjp1m2hxf"
+
+[sub_resource type="Resource" id="Resource_jvqfo"]
+script = ExtResource("2_ohura")
+size = Vector2i(16, 16)
+metadata/_custom_type_script = "uid://ns3ab0ey6hjn"
+
+[node name="Node2D" type="Node2D" unique_id=6617593]
+
+[node name="Rect1" type="Node2D" parent="." unique_id=1762851728]
+position = Vector2(128, 64)
+script = ExtResource("1_mim41")
+collision = SubResource("Resource_r17kd")
+player_controlled = true
+
+[node name="Rect2" type="Node2D" parent="." unique_id=930930745]
+position = Vector2(384, 256)
+script = ExtResource("1_mim41")
+collision = SubResource("Resource_0acop")
+player_controlled = null
+
+[node name="Circle1" type="Node2D" parent="." unique_id=1759064607]
+position = Vector2(576, 128)
+script = ExtResource("1_mim41")
+collision = SubResource("Resource_cisxy")
+player_controlled = null
+
+[node name="Circle2" type="Node2D" parent="." unique_id=1219686568]
+position = Vector2(128, 384)
+script = ExtResource("1_mim41")
+collision = SubResource("Resource_ohura")
+player_controlled = true
+
+[node name="BlipShape2D" type="Node2D" parent="." unique_id=332988243]
+position = Vector2(272, 144)
+script = ExtResource("4_ohura")
+fixed_position = Vector2i(272, 144)
+shape = SubResource("Resource_jvqfo")
+metadata/_custom_type_script = "uid://dd48mh7q8cggk"
